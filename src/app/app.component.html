@@ -1,0 +1,16 @@
+<header>
+  <h1>Adressbok</h1>
+  <nav>
+    <ul>
+      <li [routerLink]="['/']">Hem</li>
+      <li [routerLink]="['/add-contact']">Lägg till</li>
+      <li [routerLink]="['/show-contacts']">Se kontakter</li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer> Fanny Lundberg © 2022 </footer>
