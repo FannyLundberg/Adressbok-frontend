@@ -1,20 +1,24 @@
 <h2>Lägg till en kontakt</h2>
 
-<form>
+<form *ngIf="!formSubmitted">
     <div>
         <label for="name">Namn: </label>
-        <input type="text" name="name">
+        <input type="text" name="name" #name >
     </div>
 
     <div>
         <label for="email">Email: </label>
-        <input type="mail" name="email">
+        <input type="mail" name="email" #email >
     </div>
 
     <div>
         <label for="phone">Telefon </label>
-        <input type="number" name="phone">
+        <input type="text" name="phone" #phone >
     </div>
+
+    <button (click)="addContact(name.value, email.value, phone.value)">Lägg till</button>
 </form>
 
-<button (click)="addContact()">Lägg till</button>
+<div *ngIf="formSubmitted">
+    <p>Din kontakt har nu lagts till!</p>
+</div>

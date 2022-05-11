@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AddContactService } from 'src/app/services/add-contact.service';
 
 @Component({
   selector: 'app-add-contact',
@@ -7,15 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddContactComponent implements OnInit {
 
-  constructor() { }
+  name: string = "";
+  email: string = "";
+  phone: string = "";
+  formSubmitted: boolean = false;
+
+  constructor(private service: AddContactService) { }
 
   ngOnInit(): void {
   }
 
-  addContact() {
-    console.log("Klick på knappen");
+  addContact(name: string, email: string, phone: string) {
+    console.log(name, email, phone);
 
-    // Skicka info om kontakten till services
+    let user = {
+      name,
+      email,
+      phone
+    }
+
+    this.service.addContact(user)
+
+    this.formSubmitted = true;
   }
 
 }
